@@ -5,7 +5,7 @@ import { Link, useLoaderData } from "@remix-run/react";
 import type { Post } from "~/models/post.server";
 import { getPosts } from "~/models/post.server";
 
-type LoaderData = { posts: Post[] };
+type LoaderData = { posts: Pick<Post, "slug" | "title">[] };
 
 export const loader: LoaderFunction = async () => {
   const posts = await getPosts()
