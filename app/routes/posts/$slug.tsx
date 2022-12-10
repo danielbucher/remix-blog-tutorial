@@ -10,7 +10,7 @@ import { getPost } from "~/models/post.server";
 type LoaderData = { post: Pick<Post, "title">, html: string }
 
 export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.slug, `params.slug is required`);
+  invariant(params.slug, "params.slug is required");
 
   const post = await getPost(params.slug)
   invariant(post, `Post not found: ${params.slug}`);
